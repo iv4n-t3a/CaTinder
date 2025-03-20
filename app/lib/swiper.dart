@@ -93,7 +93,7 @@ class _SwiperState extends State<Swiper> {
               FloatingActionButton(
                 onPressed: _dislike,
                 child: Icon(
-                  Icons.arrow_back,
+                  Icons.clear,
                   size: 42,
                 ),
               ),

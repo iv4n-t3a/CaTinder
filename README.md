@@ -9,7 +9,7 @@
 
 ## Скачать
 
-[Скачать apk](https://disk.yandex.ru/d/zCwEZQhOR7Rngg)
+[Скачать apk](https://disk.yandex.ru/d/ZWkv-bDJdlrk3w)
 
 ## Демо
 
