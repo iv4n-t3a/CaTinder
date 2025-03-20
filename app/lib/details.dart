@@ -17,20 +17,16 @@ class Details extends StatelessWidget {
         title: TextBox(text: card.breed),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  NetImage(url: card.imageUrl),
-                  TextBox(text: card.description),
-                ],
-              ),
-            ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              NetImage(url: card.imageUrl),
+              TextBox(text: card.description),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

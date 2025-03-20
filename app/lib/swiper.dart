@@ -77,7 +77,7 @@ class _SwiperState extends State<Swiper> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TextBox(text: "catinder"),
+        title: TextBox(text: "Catinder"),
         centerTitle: true,
       ),
       body: Column(

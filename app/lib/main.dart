@@ -15,13 +15,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'cats',
+      title: 'Catinder',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red, brightness: Brightness.dark),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.red, brightness: Brightness.dark),
         useMaterial3: true,
       ),
       home: Swiper(),
     );
   }
 }
-
