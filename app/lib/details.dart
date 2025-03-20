@@ -1,13 +1,12 @@
 import 'package:app/loader.dart';
+import 'package:app/widgets.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatelessWidget {
-  final Image image;
   final CatCard card;
 
   const Details({
     super.key,
-    required this.image,
     required this.card,
   });
 
@@ -25,7 +24,7 @@ class Details extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  image,
+                  CatImage(url: card.imageUrl),
                   Text(card.description),
                 ],
               ),

@@ -1,6 +1,8 @@
 import 'package:app/details.dart';
+import 'package:app/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:app/loader.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class Swiper extends StatefulWidget {
   const Swiper({
@@ -13,7 +15,6 @@ class Swiper extends StatefulWidget {
 
 class _SwiperState extends State<Swiper> {
   late Future<CatCard> currentCard;
-  late Image catImage;
   int count = 0;
 
   @override
@@ -24,19 +25,12 @@ class _SwiperState extends State<Swiper> {
 
   void _updateCat() {
     currentCard = fetchCard();
-
-    currentCard.then(
-      (value) {
-        catImage = _buildCatImage(value.imageUrl);
-      },
-    );
   }
 
   void _openDetails(CatCard card) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-          builder: (context) => Details(image: catImage, card: card)),
+      MaterialPageRoute(builder: (context) => Details(card: card)),
     );
   }
 
@@ -51,51 +45,45 @@ class _SwiperState extends State<Swiper> {
     _updateCat();
   }
 
-  Image _buildCatImage(String url) {
-    return Image(
-      image: NetworkImage(url),
-      fit: BoxFit.cover,
-      width: double.infinity,
-      height: 500,
+  Widget _buildCard(CatCard card) {
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: GestureDetector(
+        onTap: () => _openDetails(card),
+        child: Dismissible(
+          key: UniqueKey(),
+          direction: DismissDirection.horizontal,
+          onDismissed: (direction) {
+            if (direction == DismissDirection.startToEnd) {
+              _like();
+            } else if (direction == DismissDirection.endToStart) {
+              _dislike();
+            }
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: Card(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    CatImage(url: card.imageUrl),
+                    Text(card.breed),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 
-  Widget _buildCard() {
+  Widget _buildCardLoad() {
     return FutureBuilder<CatCard>(
       future: currentCard,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Padding(
-            padding: EdgeInsets.all(16.0),
-            child: GestureDetector(
-              onTap: () => _openDetails(snapshot.data!),
-              child: Dismissible(
-                key: UniqueKey(),
-                direction: DismissDirection.horizontal,
-                onDismissed: (direction) {
-                  if (direction == DismissDirection.startToEnd) {
-                    _like();
-                  } else if (direction == DismissDirection.endToStart) {
-                    _dislike();
-                  }
-                },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Card(
-                    color: Colors.white,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          catImage,
-                          Text(snapshot.data!.breed),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          );
+          return _buildCard(snapshot.data!);
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');
         }
@@ -108,35 +96,37 @@ class _SwiperState extends State<Swiper> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        _buildCard(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            FloatingActionButton(
-              onPressed: _dislike,
-              backgroundColor: Colors.deepPurple,
-              child: Icon(
-                Icons.arrow_back,
-                size: 42,
-                color: Colors.black,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("catinder"),
+        centerTitle: true,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _buildCardLoad(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              FloatingActionButton(
+                onPressed: _dislike,
+                child: Icon(
+                  Icons.arrow_back,
+                  size: 42,
+                ),
               ),
-            ),
-            Text(count.toString()),
-            FloatingActionButton(
-              onPressed: _like,
-              backgroundColor: Colors.deepPurple,
-              child: Icon(
-                Icons.favorite,
-                size: 32,
-                color: Colors.black,
+              Text(count.toString()),
+              FloatingActionButton(
+                onPressed: _like,
+                child: Icon(
+                  Icons.favorite,
+                  size: 32,
+                ),
               ),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
