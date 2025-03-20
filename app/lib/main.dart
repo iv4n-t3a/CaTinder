@@ -15,7 +15,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Catinder',
+      title: 'CaTinder',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.red, brightness: Brightness.dark),

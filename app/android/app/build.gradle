@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.catinder"
+    namespace = "com.example.app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -20,7 +20,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.catinder"
+        applicationId = "com.example.app"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
