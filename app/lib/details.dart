@@ -1,20 +1,20 @@
 import 'package:app/loader.dart';
-import 'package:app/widgets.dart';
+import 'package:app/netimage.dart';
 import 'package:flutter/material.dart';
+import 'package:app/textbox.dart';
 
 class Details extends StatelessWidget {
-  final CatCard card;
+  final Future<CatModel> card;
 
   const Details({
     super.key,
     required this.card,
   });
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildLoaded(CatModel card) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(card.breed),
+        title: TextBox(text: card.breed),
         centerTitle: true,
       ),
       body: Column(
@@ -24,14 +24,54 @@ class Details extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  CatImage(url: card.imageUrl),
-                  Text(card.description),
+                  NetImage(url: card.imageUrl),
+                  TextBox(text: card.description),
                 ],
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildError(String error) {
+    return Scaffold(
+      appBar: AppBar(
+        title: TextBox(text: error),
+        centerTitle: true,
+      ),
+      body: TextBox(text: error),
+    );
+  }
+
+  Widget _buildLoad() {
+    return Scaffold(
+      appBar: AppBar(
+        title: TextBox(text: "Loading..."),
+        centerTitle: true,
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        height: 500,
+        child: const CircularProgressIndicator(),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<CatModel>(
+      future: card,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return _buildLoaded(snapshot.data!);
+        } else if (snapshot.hasError) {
+          return _buildError('${snapshot.error}');
+        }
+
+        return _buildLoad();
+      },
     );
   }
 }

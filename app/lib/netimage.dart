@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-class CatImage extends StatelessWidget {
+class NetImage extends StatelessWidget {
   final String url;
+  final int height = 500;
 
-  const CatImage({
+  const NetImage({
     super.key,
     required this.url,
   });
@@ -21,4 +22,3 @@ class CatImage extends StatelessWidget {
     );
   }
 }
-

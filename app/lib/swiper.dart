@@ -1,8 +1,8 @@
 import 'package:app/details.dart';
-import 'package:app/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:app/card.dart';
 import 'package:app/loader.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:app/textbox.dart';
 
 class Swiper extends StatefulWidget {
   const Swiper({
@@ -14,7 +14,7 @@ class Swiper extends StatefulWidget {
 }
 
 class _SwiperState extends State<Swiper> {
-  late Future<CatCard> currentCard;
+  late Future<CatModel> currentCard;
   int count = 0;
 
   @override
@@ -27,10 +27,10 @@ class _SwiperState extends State<Swiper> {
     currentCard = fetchCard();
   }
 
-  void _openDetails(CatCard card) {
+  void _openDetails() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Details(card: card)),
+      MaterialPageRoute(builder: (context) => Details(card: currentCard)),
     );
   }
 
@@ -45,11 +45,11 @@ class _SwiperState extends State<Swiper> {
     _updateCat();
   }
 
-  Widget _buildCard(CatCard card) {
+  Widget _buildCard() {
     return Padding(
       padding: EdgeInsets.all(16.0),
       child: GestureDetector(
-        onTap: () => _openDetails(card),
+        onTap: () => _openDetails(),
         child: Dismissible(
           key: UniqueKey(),
           direction: DismissDirection.horizontal,
@@ -64,12 +64,7 @@ class _SwiperState extends State<Swiper> {
             borderRadius: BorderRadius.circular(20.0),
             child: Card(
               child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    CatImage(url: card.imageUrl),
-                    Text(card.breed),
-                  ],
-                ),
+                child: CatCard(card: currentCard),
               ),
             ),
           ),
@@ -78,33 +73,20 @@ class _SwiperState extends State<Swiper> {
     );
   }
 
-  Widget _buildCardLoad() {
-    return FutureBuilder<CatCard>(
-      future: currentCard,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return _buildCard(snapshot.data!);
-        } else if (snapshot.hasError) {
-          return Text('${snapshot.error}');
-        }
-
-        // By default, show a loading spinner.
-        return const CircularProgressIndicator();
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("catinder"),
+        title: TextBox(text: "catinder"),
         centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildCardLoad(),
+          SizedBox(
+            height: 600,
+            child: _buildCard(),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -115,7 +97,7 @@ class _SwiperState extends State<Swiper> {
                   size: 42,
                 ),
               ),
-              Text(count.toString()),
+              TextBox(text: count.toString()),
               FloatingActionButton(
                 onPressed: _like,
                 child: Icon(

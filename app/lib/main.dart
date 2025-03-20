@@ -17,7 +17,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'cats',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red, brightness: Brightness.dark),
         useMaterial3: true,
       ),
       home: Swiper(),

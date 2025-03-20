@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-class CatCard {
+class CatModel {
   final String imageUrl;
   final String id;
   final String origin;
@@ -12,7 +12,7 @@ class CatCard {
   final String breed;
   final String description;
 
-  const CatCard({
+  const CatModel({
     required this.imageUrl,
     required this.id,
     required this.origin,
@@ -22,10 +22,10 @@ class CatCard {
     required this.description,
   });
 
-  factory CatCard.fromJson(Map<String, dynamic> json) {
+  factory CatModel.fromJson(Map<String, dynamic> json) {
     return switch (json) {
       {'url': String url, 'id': String id, 'breeds': List<dynamic> breeds} =>
-        CatCard(
+        CatModel(
           imageUrl: url,
           id: id,
           origin: breeds[0]["origin"] as String,
@@ -39,7 +39,7 @@ class CatCard {
   }
 }
 
-Future<CatCard> fetchCard() async {
+Future<CatModel> fetchCard() async {
   final queryParameters = {
     'size': 'med',
     'mime_types': 'jpg',
@@ -61,7 +61,7 @@ Future<CatCard> fetchCard() async {
   final response = await http.get(uri, headers: headers);
 
   if (response.statusCode == HttpStatus.ok) {
-    return CatCard.fromJson(
+    return CatModel.fromJson(
         jsonDecode(response.body)[0] as Map<String, dynamic>);
   } else {
     throw FormatException("Server returned %s", response.statusCode);
