@@ -1,0 +1,1 @@
+ /home/ivan/Projects/tinder/.dart_tool/flutter_build/69154b2b54c104814215456578a7cef4/native_assets.yaml: 
