@@ -1,7 +1,11 @@
+import 'package:app/core.dart';
+import 'package:app/presentation/swiper/screen.dart';
+import 'package:app/screen.dart';
 import 'package:flutter/material.dart';
-import 'package:app/swiper.dart';
 
 void main() {
+  setupServices();
+
   runApp(
     App(),
   );
@@ -18,10 +22,10 @@ class App extends StatelessWidget {
       title: 'CaTinder',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.red, brightness: Brightness.dark),
+            seedColor: Colors.purple, brightness: Brightness.dark),
         useMaterial3: true,
       ),
-      home: Swiper(),
+      home: AppScreen(screen: SwiperScreen()),
     );
   }
 }

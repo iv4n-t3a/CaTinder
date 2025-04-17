@@ -1,17 +1,17 @@
-import 'package:app/loader.dart';
-import 'package:app/netimage.dart';
+import 'package:app/domain/entities/cat.dart';
+import 'package:app/presentation/util/netimage.dart';
+import 'package:app/presentation/util/textbox.dart';
 import 'package:flutter/material.dart';
-import 'package:app/textbox.dart';
 
-class Details extends StatelessWidget {
-  final Future<CatModel> card;
+class DetailsScreen extends StatelessWidget {
+  final Future<Cat> cat;
 
-  const Details({
+  const DetailsScreen({
     super.key,
-    required this.card,
+    required this.cat,
   });
 
-  Widget _buildLoaded(CatModel card) {
+  Widget _buildLoaded(Cat card) {
     return Scaffold(
       appBar: AppBar(
         title: TextBox(text: card.breed),
@@ -57,8 +57,8 @@ class Details extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<CatModel>(
-      future: card,
+    return FutureBuilder<Cat>(
+      future: cat,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return _buildLoaded(snapshot.data!);
