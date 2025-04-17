@@ -9,13 +9,17 @@
 
 ## Скачать
 
-[Скачать apk](https://disk.yandex.ru/d/ZWkv-bDJdlrk3w)
+[Скачать apk](https://disk.yandex.ru/d/ZYUwix-r0GxqkA)
 
 ## Демо
 
-![Иконка](assets/demo-main-screen.jpg)
+![Главный экран](assets/demo-main-screen.jpg)
 
-![Иконка](assets/demo-details-info.jpg)
+![Подробное описание](assets/demo-details-info.jpg)
+
+![История](assets/demo-history.jpg)
+
+![Фильтер истории](assets/demo-filter.jpg)
 
 ## Фичи
 
@@ -24,4 +28,7 @@
 - Подробная информация о породе при тапе на карточку
 - Иконка приложения
 - Удобная навигация
+- Экран с историей всех лайков
+- Возможность удалять лайки
+- Возможность фильтровать лайкнутых котиков по породе
 - Полное соответсвие техническим требованиям домашки
