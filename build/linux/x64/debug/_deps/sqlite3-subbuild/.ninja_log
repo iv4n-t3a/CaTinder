@@ -1,0 +1,21 @@
+# ninja log v6
+1779	1793	1746712900829067588	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-patch	468b5a9c49041c53
+1835	1848	1746712900883067584	/home/ivan/Projects/tinder/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-test	b84db8efad3b96d0
+1821	1835	1746712900870067585	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-install	13293bcd23875f17
+1794	1807	1746712900843067587	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-configure	8c3af8056aaff8e7
+1848	1872	1746712900907067583	CMakeFiles/sqlite3-populate-complete	c206357cc8a2ec1d
+1759	1779	1746712900814067589	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-update	a9d12f1e6b8c6b02
+1848	1872	1746712900907067583	/home/ivan/Projects/tinder/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-done	c206357cc8a2ec1d
+1807	1821	1746712900856067586	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-build	ec78eaa3c360062f
+1	16	1746712899051067704	/home/ivan/Projects/tinder/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-mkdir	db4fc86651be9338
+1779	1793	1746712900829067588	/home/ivan/Projects/tinder/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-patch	468b5a9c49041c53
+16	1759	1746712900794067590	/home/ivan/Projects/tinder/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-download	d9fcc504b3311919
+16	1759	1746712900794067590	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-download	d9fcc504b3311919
+1835	1848	1746712900883067584	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-test	b84db8efad3b96d0
+1759	1779	1746712900814067589	/home/ivan/Projects/tinder/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-update	a9d12f1e6b8c6b02
+1821	1835	1746712900870067585	/home/ivan/Projects/tinder/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-install	13293bcd23875f17
+1794	1807	1746712900843067587	/home/ivan/Projects/tinder/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-configure	8c3af8056aaff8e7
+1848	1872	1746712900907067583	/home/ivan/Projects/tinder/build/linux/x64/debug/_deps/sqlite3-subbuild/CMakeFiles/sqlite3-populate-complete	c206357cc8a2ec1d
+1807	1821	1746712900856067586	/home/ivan/Projects/tinder/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-build	ec78eaa3c360062f
+1	16	1746712899051067704	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-mkdir	db4fc86651be9338
+1848	1872	1746712900907067583	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-done	c206357cc8a2ec1d

@@ -3,6 +3,7 @@ import 'package:app/domain/filter.dart';
 import 'package:app/domain/repositories/history.dart';
 import 'package:app/presentation/details/screen.dart';
 import 'package:app/presentation/util/netimage.dart';
+import 'package:app/presentation/util/swipable.dart';
 import 'package:app/presentation/util/textbox.dart';
 import 'package:app/screen.dart';
 import 'package:flutter/material.dart';
@@ -18,47 +19,59 @@ class HistoryItem extends StatelessWidget {
     required this.cat,
   });
 
+  Future<DateTime> _fetchLikeDate() async {
+    return GetIt.I.get<HistoryRepository>().getLikeDate(cat);
+  }
+
+  Future<void> _removeLike() async {
+    return GetIt.I.get<HistoryRepository>().removeLike(cat);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Align(
-          alignment: Alignment.topRight,
-          child: BlocBuilder<FilterCubit, FilterState>(
-            builder: (ctx, state) => CloseButton(
-              onPressed: () => ctx.read<FilterCubit>().removeLike(cat),
-            ),
-          ),
-        ),
-        Material(
-          child: Padding(
-            padding: const EdgeInsets.all(10),
+    return BlocBuilder<FilterCubit, FilterState>(
+      builder: (ctx, _) => Material(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Swipable(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: GestureDetector(
-                child: Card(
-                  child: Column(
-                    children: [
-                      NetImage(url: cat.imageUrl),
-                      TextBox(text: cat.breed),
-                      FooterTextBox(
-                          text: DateFormat("hh:mm dd.MM").format(GetIt.I
-                              .get<HistoryRepository>()
-                              .getLikeDate(cat))),
-                    ],
-                  ),
-                ),
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => AppScreen(
-                        screen: DetailsScreen(cat: (() async => cat)())),
-                  ),
+              child: Card(
+                child: Column(
+                  children: [
+                    NetImage(url: cat.imageUrl),
+                    TextBox(text: cat.breed),
+                    FutureBuilder<DateTime>(
+                      future: _fetchLikeDate(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const CircularProgressIndicator();
+                        } else if (snapshot.hasError) {
+                          return const SizedBox.shrink();
+                        } else {
+                          final likeDate = snapshot.data!;
+                          return FooterTextBox(
+                            text: DateFormat("hh:mm dd.MM").format(likeDate),
+                          );
+                        }
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) =>
+                    AppScreen(screen: DetailsScreen(cat: (() async => cat)())),
+              ),
+            ),
+            onLeftSwipe: () => _removeLike(),
+            onRightSwipe: () => _removeLike(),
           ),
         ),
-      ],
+      ),
     );
   }
 }

@@ -1,0 +1,9 @@
+{
+  "elements": {},
+  "imports": [
+    "package:app/domain/entities/cat.dart",
+    "package:app/presentation/util/netimage.dart",
+    "package:app/presentation/util/textbox.dart",
+    "package:flutter/material.dart"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "elements": {},
+  "imports": [
+    "package:app/data/cats/loader.dart",
+    "package:app/data/history/repository.dart",
+    "package:app/domain/entities/cat.dart",
+    "package:app/domain/repositories/history.dart",
+    "package:get_it/get_it.dart"
+  ]
+}

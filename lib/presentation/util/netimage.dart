@@ -19,6 +19,8 @@ class NetImage extends StatelessWidget {
       fit: BoxFit.cover,
       placeholder: (context, url) =>
           const Center(child: CircularProgressIndicator()),
+      errorWidget: (context, url, error) =>
+          const Center(child: Icon(Icons.error, color: Colors.red)),
     );
   }
 }

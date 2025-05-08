@@ -8,19 +8,27 @@ class FilterState {
 
   FilterState({required this.enabled});
 
-  factory FilterState.allEnabled() {
+  static Future<FilterState> allEnabled() async {
+    final breeds = await GetIt.I.get<HistoryRepository>().breeds;
     return FilterState(enabled: {
-      for (String breed in GetIt.I.get<HistoryRepository>().breeds) breed: true
+      for (String breed in breeds) breed: true,
     });
   }
 }
 
 class FilterCubit extends Cubit<FilterState> {
-  FilterCubit() : super(FilterState.allEnabled());
+  FilterCubit() : super(FilterState(enabled: {})) {
+    _initialize();
+  }
 
-  void removeLike(Cat cat) {
-    GetIt.I.get<HistoryRepository>().removeLike(cat);
-    FilterState newState = FilterState.allEnabled();
+  Future<void> _initialize() async {
+    final initialState = await FilterState.allEnabled();
+    emit(initialState);
+  }
+
+  Future<void> removeLike(Cat cat) async {
+    await GetIt.I.get<HistoryRepository>().removeLike(cat);
+    final newState = await FilterState.allEnabled();
 
     for (String k in state.enabled.keys) {
       newState.enabled[k] = state.enabled[k]!;
@@ -30,13 +38,14 @@ class FilterCubit extends Cubit<FilterState> {
   }
 
   void setBreed(String breed, bool value) {
-    Map<String, bool> enabled = state.enabled;
+    final enabled = Map<String, bool>.from(state.enabled);
     enabled[breed] = value;
     emit(FilterState(enabled: enabled));
   }
 
-  Iterable<Cat> get filteredItems sync* {
-    for (Cat i in GetIt.I.get<HistoryRepository>().likes) {
+  Stream<Cat> get filteredItems async* {
+    final likes = await GetIt.I.get<HistoryRepository>().likes;
+    for (Cat i in likes) {
       if (!state.enabled[i.breed]!) {
         continue;
       }
@@ -46,3 +55,4 @@ class FilterCubit extends Cubit<FilterState> {
 
   Map<String, bool> get filterMap => state.enabled;
 }
+

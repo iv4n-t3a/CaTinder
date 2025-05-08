@@ -37,7 +37,7 @@ class CardWidget extends StatelessWidget {
         ),
       );
     });
-    return TextBox(text: error);
+    return Center(child: Icon(Icons.error, color: Colors.red));
   }
 
   Widget _buildLoad(BuildContext context) {

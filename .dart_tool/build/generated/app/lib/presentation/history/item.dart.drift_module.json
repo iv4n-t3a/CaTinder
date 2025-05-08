@@ -1,0 +1,17 @@
+{
+  "elements": {},
+  "imports": [
+    "package:app/domain/entities/cat.dart",
+    "package:app/domain/filter.dart",
+    "package:app/domain/repositories/history.dart",
+    "package:app/presentation/details/screen.dart",
+    "package:app/presentation/util/netimage.dart",
+    "package:app/presentation/util/swipable.dart",
+    "package:app/presentation/util/textbox.dart",
+    "package:app/screen.dart",
+    "package:flutter/material.dart",
+    "package:flutter_bloc/flutter_bloc.dart",
+    "package:get_it/get_it.dart",
+    "package:intl/intl.dart"
+  ]
+}

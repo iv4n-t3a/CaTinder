@@ -34,7 +34,7 @@ class DetailsScreen extends StatelessWidget {
   Widget _buildError(String error) {
     return Scaffold(
       appBar: AppBar(
-        title: TextBox(text: error),
+        title: TextBox(text: "Network error:("),
         centerTitle: true,
       ),
       body: TextBox(text: error),
@@ -44,7 +44,7 @@ class DetailsScreen extends StatelessWidget {
   Widget _buildLoad() {
     return Scaffold(
       appBar: AppBar(
-        title: TextBox(text: "Loading..."),
+        title: TextBox(text: "Detailed info"),
         centerTitle: true,
       ),
       body: Container(

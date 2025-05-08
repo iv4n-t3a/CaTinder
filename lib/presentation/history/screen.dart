@@ -31,20 +31,22 @@ class _HistoryScreenState extends State<HistoryScreen> {
         builder: (ctx, state) {
           return Stack(
             children: [
-              ListView(
-                padding: const EdgeInsets.all(10),
-                children: ctx
-                    .read<FilterCubit>()
-                    .filteredItems
-                    .map((cat) => HistoryItem(
-                          cat: cat,
-                          //closeCallback: () {
-                          //  setState(
-                          //      () => ctx.read<FilterCubit>().removeLike(cat));
-                          //},
-                        ))
-                    .toList(),
-              ),
+              FutureBuilder<List<HistoryItem>>(
+                  future: ctx
+                      .read<FilterCubit>()
+                      .filteredItems
+                      .map((cat) => HistoryItem(cat: cat))
+                      .toList(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const CircularProgressIndicator();
+                    } else if (snapshot.hasError) {
+                      return const SizedBox.shrink();
+                    } else {
+                      final likes = snapshot.data!;
+                      return ListView(children: likes);
+                    }
+                  }),
               if (_filterShown) Filter()
             ],
           );

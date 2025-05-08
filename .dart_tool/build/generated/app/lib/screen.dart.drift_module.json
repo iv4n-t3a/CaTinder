@@ -1,0 +1,9 @@
+{
+  "elements": {},
+  "imports": [
+    "package:app/domain/filter.dart",
+    "package:app/domain/swiper.dart",
+    "package:flutter/material.dart",
+    "package:flutter_bloc/flutter_bloc.dart"
+  ]
+}

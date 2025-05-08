@@ -4,11 +4,17 @@
       jars="/home/ivan/Projects/tinder/build/app/intermediates/flutter/release/libs.jar"
       resolved="__local_aars__:/home/ivan/Projects/tinder/build/app/intermediates/flutter/release/libs.jar:unspecified"/>
   <library
+      name=":@@:connectivity_plus::release"
+      project=":connectivity_plus"/>
+  <library
       name=":@@:path_provider_android::release"
       project=":path_provider_android"/>
   <library
       name=":@@:sqflite_android::release"
       project=":sqflite_android"/>
+  <library
+      name=":@@:sqlite3_flutter_libs::release"
+      project=":sqlite3_flutter_libs"/>
   <library
       name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar"
       jars="/home/ivan/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.8.22/4dabb8248310d833bb6a8b516024a91fd3d275c/kotlin-stdlib-jdk7-1.8.22.jar"
@@ -403,6 +409,19 @@
       jars="/home/ivan/.gradle/caches/transforms-3/a1432dcb8d4cd6645e926e96f5fd992c/transformed/jetified-core-1.0.0/jars/classes.jar"
       resolved="androidx.window.extensions.core:core:1.0.0"
       folder="/home/ivan/.gradle/caches/transforms-3/a1432dcb8d4cd6645e926e96f5fd992c/transformed/jetified-core-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="eu.simonbinder:sqlite3-native-library:3.49.1+1@aar"
+      jars="/home/ivan/.gradle/caches/transforms-3/307af708b7b27ea5964a289b22b79637/transformed/jetified-sqlite3-native-library-3.49.1+1/jars/classes.jar"
+      resolved="eu.simonbinder:sqlite3-native-library:3.49.1+1"
+      folder="/home/ivan/.gradle/caches/transforms-3/307af708b7b27ea5964a289b22b79637/transformed/jetified-sqlite3-native-library-3.49.1+1"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

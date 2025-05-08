@@ -1,0 +1,1 @@
+{"valid_import":true,"imports":[{"uri":"package:http/http.dart","transitive":false},{"uri":"package:app/domain/entities/cat.dart","transitive":false},{"uri":"package:app/data/cats/model.dart","transitive":false}],"elements":[]}

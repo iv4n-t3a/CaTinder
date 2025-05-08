@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:app/domain/filter.dart",
+    "package:app/presentation/history/filter.dart",
+    "package:app/presentation/history/item.dart",
+    "package:app/presentation/util/button.dart",
+    "package:app/presentation/util/textbox.dart",
+    "package:flutter/material.dart",
+    "package:flutter_bloc/flutter_bloc.dart"
+  ]
+}

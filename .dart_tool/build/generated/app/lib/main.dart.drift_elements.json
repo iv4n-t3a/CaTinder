@@ -1,0 +1,1 @@
+{"valid_import":true,"imports":[{"uri":"package:app/core.dart","transitive":false},{"uri":"package:app/presentation/swiper/screen.dart","transitive":false},{"uri":"package:app/screen.dart","transitive":false},{"uri":"package:flutter/material.dart","transitive":false}],"elements":[]}

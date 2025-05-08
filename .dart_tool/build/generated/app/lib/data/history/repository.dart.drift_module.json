@@ -1,0 +1,9 @@
+{
+  "elements": {},
+  "imports": [
+    "package:app/data/database/database.dart",
+    "package:app/domain/entities/cat.dart",
+    "package:app/domain/repositories/history.dart",
+    "package:drift/drift.dart"
+  ]
+}

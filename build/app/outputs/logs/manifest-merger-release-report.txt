@@ -30,8 +30,10 @@ ADDED from /home/ivan/Projects/tinder/android/app/src/main/AndroidManifest.xml:1
 INJECTED from /home/ivan/Projects/tinder/android/app/src/main/AndroidManifest.xml:1:1-46:12
 INJECTED from /home/ivan/Projects/tinder/android/app/src/main/AndroidManifest.xml:1:1-46:12
 INJECTED from /home/ivan/Projects/tinder/android/app/src/main/AndroidManifest.xml:1:1-46:12
+MERGED from [:connectivity_plus] /home/ivan/Projects/tinder/build/connectivity_plus/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider_android] /home/ivan/Projects/tinder/build/path_provider_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
 MERGED from [:sqflite_android] /home/ivan/Projects/tinder/build/sqflite_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:sqlite3_flutter_libs] /home/ivan/Projects/tinder/build/sqlite3_flutter_libs/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.fragment:fragment:1.7.1] /home/ivan/.gradle/caches/transforms-3/0006d3b6746f8162d799796c88b5c16e/transformed/fragment-1.7.1/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.window:window:1.2.0] /home/ivan/.gradle/caches/transforms-3/d465bd7624f9a5f2819cc2d8d5353fc9/transformed/jetified-window-1.2.0/AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.window:window-java:1.2.0] /home/ivan/.gradle/caches/transforms-3/01a8d642fcf42f1f9751278568a97906/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:17:1-21:12
@@ -57,6 +59,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/ivan/
 MERGED from [androidx.interpolator:interpolator:1.0.0] /home/ivan/.gradle/caches/transforms-3/05454e4b00e58a6e3aa43102a84d070d/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window.extensions.core:core:1.0.0] /home/ivan/.gradle/caches/transforms-3/a1432dcb8d4cd6645e926e96f5fd992c/transformed/jetified-core-1.0.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] /home/ivan/.gradle/caches/transforms-3/356df10a288b86096b4c627914f498d1/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [eu.simonbinder:sqlite3-native-library:3.49.1+1] /home/ivan/.gradle/caches/transforms-3/307af708b7b27ea5964a289b22b79637/transformed/jetified-sqlite3-native-library-3.49.1+1/AndroidManifest.xml:2:1-7:12
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /home/ivan/.gradle/caches/transforms-3/7d1e6b73cf3145de182e3b87122171ea/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:2:1-7:12
 	package
 		INJECTED from /home/ivan/Projects/tinder/android/app/src/main/AndroidManifest.xml
@@ -126,10 +129,14 @@ uses-sdk
 INJECTED from /home/ivan/Projects/tinder/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/ivan/Projects/tinder/android/app/src/main/AndroidManifest.xml
 INJECTED from /home/ivan/Projects/tinder/android/app/src/main/AndroidManifest.xml
+MERGED from [:connectivity_plus] /home/ivan/Projects/tinder/build/connectivity_plus/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:connectivity_plus] /home/ivan/Projects/tinder/build/connectivity_plus/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_android] /home/ivan/Projects/tinder/build/path_provider_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_android] /home/ivan/Projects/tinder/build/path_provider_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
 MERGED from [:sqflite_android] /home/ivan/Projects/tinder/build/sqflite_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
 MERGED from [:sqflite_android] /home/ivan/Projects/tinder/build/sqflite_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:sqlite3_flutter_libs] /home/ivan/Projects/tinder/build/sqlite3_flutter_libs/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
+MERGED from [:sqlite3_flutter_libs] /home/ivan/Projects/tinder/build/sqlite3_flutter_libs/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.7.1] /home/ivan/.gradle/caches/transforms-3/0006d3b6746f8162d799796c88b5c16e/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.7.1] /home/ivan/.gradle/caches/transforms-3/0006d3b6746f8162d799796c88b5c16e/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
 MERGED from [androidx.window:window:1.2.0] /home/ivan/.gradle/caches/transforms-3/d465bd7624f9a5f2819cc2d8d5353fc9/transformed/jetified-window-1.2.0/AndroidManifest.xml:20:5-44
@@ -180,12 +187,18 @@ MERGED from [androidx.window.extensions.core:core:1.0.0] /home/ivan/.gradle/cach
 MERGED from [androidx.window.extensions.core:core:1.0.0] /home/ivan/.gradle/caches/transforms-3/a1432dcb8d4cd6645e926e96f5fd992c/transformed/jetified-core-1.0.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] /home/ivan/.gradle/caches/transforms-3/356df10a288b86096b4c627914f498d1/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] /home/ivan/.gradle/caches/transforms-3/356df10a288b86096b4c627914f498d1/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [eu.simonbinder:sqlite3-native-library:3.49.1+1] /home/ivan/.gradle/caches/transforms-3/307af708b7b27ea5964a289b22b79637/transformed/jetified-sqlite3-native-library-3.49.1+1/AndroidManifest.xml:5:5-44
+MERGED from [eu.simonbinder:sqlite3-native-library:3.49.1+1] /home/ivan/.gradle/caches/transforms-3/307af708b7b27ea5964a289b22b79637/transformed/jetified-sqlite3-native-library-3.49.1+1/AndroidManifest.xml:5:5-44
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /home/ivan/.gradle/caches/transforms-3/7d1e6b73cf3145de182e3b87122171ea/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:5:5-43
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /home/ivan/.gradle/caches/transforms-3/7d1e6b73cf3145de182e3b87122171ea/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:5:5-43
 	android:targetSdkVersion
 		INJECTED from /home/ivan/Projects/tinder/android/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from /home/ivan/Projects/tinder/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:connectivity_plus] /home/ivan/Projects/tinder/build/connectivity_plus/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from [:connectivity_plus] /home/ivan/Projects/tinder/build/connectivity_plus/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:7:22-76
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.2.0] /home/ivan/.gradle/caches/transforms-3/d465bd7624f9a5f2819cc2d8d5353fc9/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
 	android:required

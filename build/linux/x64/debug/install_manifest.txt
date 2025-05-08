@@ -1,6 +1,7 @@
 /home/ivan/Projects/tinder/build/linux/x64/debug/bundle/app
 /home/ivan/Projects/tinder/build/linux/x64/debug/bundle/data/icudtl.dat
 /home/ivan/Projects/tinder/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/ivan/Projects/tinder/build/linux/x64/debug/bundle/lib/libsqlite3_flutter_libs_plugin.so
 /home/ivan/Projects/tinder/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
 /home/ivan/Projects/tinder/build/linux/x64/debug/bundle/data/flutter_assets/assets/icon.png
 /home/ivan/Projects/tinder/build/linux/x64/debug/bundle/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf

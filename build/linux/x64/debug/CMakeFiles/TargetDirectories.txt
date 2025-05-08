@@ -18,3 +18,10 @@
 /home/ivan/Projects/tinder/build/linux/x64/debug/runner/CMakeFiles/install.dir
 /home/ivan/Projects/tinder/build/linux/x64/debug/runner/CMakeFiles/install/local.dir
 /home/ivan/Projects/tinder/build/linux/x64/debug/runner/CMakeFiles/install/strip.dir
+/home/ivan/Projects/tinder/build/linux/x64/debug/plugins/sqlite3_flutter_libs/CMakeFiles/sqlite3_flutter_libs_plugin.dir
+/home/ivan/Projects/tinder/build/linux/x64/debug/plugins/sqlite3_flutter_libs/CMakeFiles/edit_cache.dir
+/home/ivan/Projects/tinder/build/linux/x64/debug/plugins/sqlite3_flutter_libs/CMakeFiles/rebuild_cache.dir
+/home/ivan/Projects/tinder/build/linux/x64/debug/plugins/sqlite3_flutter_libs/CMakeFiles/list_install_components.dir
+/home/ivan/Projects/tinder/build/linux/x64/debug/plugins/sqlite3_flutter_libs/CMakeFiles/install.dir
+/home/ivan/Projects/tinder/build/linux/x64/debug/plugins/sqlite3_flutter_libs/CMakeFiles/install/local.dir
+/home/ivan/Projects/tinder/build/linux/x64/debug/plugins/sqlite3_flutter_libs/CMakeFiles/install/strip.dir
