@@ -13,16 +13,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-class SwiperScreen extends StatelessWidget {
+class SwiperScreen extends StatefulWidget {
+  const SwiperScreen({super.key});
+
+  @override
+  State<SwiperScreen> createState() => _SwiperScreenState();
+}
+
+class _SwiperScreenState extends State<SwiperScreen> {
   NetworkStatusObserver? netobserver;
 
-  SwiperScreen({super.key});
+  @override
+  void initState() {
+    super.initState();
+    netobserver = NetworkStatusObserver(onNoInternet: () => notifyNoInternet(context));
+  }
 
   @override
   Widget build(BuildContext context) {
-    netobserver =
-        NetworkStatusObserver(onNoInternet: () => notifyNoInternet(context));
-
     return Scaffold(
       appBar: AppBar(
         title: TextBox(text: "CaTinder"),
@@ -90,3 +98,4 @@ class SwiperScreen extends StatelessWidget {
     );
   }
 }
+
