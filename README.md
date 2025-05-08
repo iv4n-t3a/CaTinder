@@ -13,7 +13,7 @@
 
 ## Демо
 
-![Главный экран](assets/demo-main-screen.jpg)
+![Главный экран](assets/dеmo-main-screen.jpg)
 
 ![Подробное описание](assets/demo-details-info.jpg)
 
