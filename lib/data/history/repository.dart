@@ -4,12 +4,15 @@ import 'package:app/domain/repositories/history.dart';
 import 'package:drift/drift.dart';
 
 class HistoryRepositoryImpl implements HistoryRepository {
-  final _db = AppDatabase();
+  final AppDatabase db;
+
+  HistoryRepositoryImpl({
+    required this.db,
+  });
 
   @override
-  @override
   Future<void> addLike(Cat cat) async {
-    await _db.into(_db.historyTable).insert(
+    await db.into(db.historyTable).insert(
           HistoryTableCompanion.insert(
             catImageUrl: cat.imageUrl,
             catOrigin: cat.origin,
@@ -24,14 +27,14 @@ class HistoryRepositoryImpl implements HistoryRepository {
 
   @override
   Future<void> removeLike(Cat cat) async {
-    await (_db.delete(_db.historyTable)
+    await (db.delete(db.historyTable)
           ..where((tbl) => tbl.catImageUrl.equals(cat.imageUrl)))
         .go();
   }
 
   @override
   Future<DateTime> getLikeDate(Cat cat) async {
-    final query = _db.select(_db.historyTable)
+    final query = db.select(db.historyTable)
       ..where((tbl) => tbl.catImageUrl.equals(cat.imageUrl));
     final result = await query.getSingleOrNull();
     if (result == null) {
@@ -42,7 +45,7 @@ class HistoryRepositoryImpl implements HistoryRepository {
 
   @override
   Future<Iterable<Cat>> get likes async {
-    final results = await _db.select(_db.historyTable).get();
+    final results = await db.select(db.historyTable).get();
     return results.map((row) => Cat(
           imageUrl: row.catImageUrl,
           origin: row.catOrigin,
@@ -55,15 +58,15 @@ class HistoryRepositoryImpl implements HistoryRepository {
 
   @override
   Future<Iterable<String>> get breeds async {
-    final query = _db.selectOnly(_db.historyTable, distinct: true)
-      ..addColumns([_db.historyTable.catBreed]);
+    final query = db.selectOnly(db.historyTable, distinct: true)
+      ..addColumns([db.historyTable.catBreed]);
     final results =
-        await query.map((row) => row.read(_db.historyTable.catBreed)!).get();
+        await query.map((row) => row.read(db.historyTable.catBreed)!).get();
     return results;
   }
 
   @override
   Future<int> get likesCount async {
-    return _db.select(_db.historyTable).get().then((list) => list.length);
+    return db.select(db.historyTable).get().then((list) => list.length);
   }
 }
