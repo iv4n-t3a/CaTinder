@@ -50,21 +50,24 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(20.0),
-      child: Card(
-        child: SingleChildScrollView(
-          child: FutureBuilder<Cat>(
-            future: card,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return _buildLoaded(snapshot.data!, context);
-              } else if (snapshot.hasError) {
-                return _buildError('${snapshot.error}', context);
-              }
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: Card(
+          child: SingleChildScrollView(
+            child: FutureBuilder<Cat>(
+              future: card,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return _buildLoaded(snapshot.data!, context);
+                } else if (snapshot.hasError) {
+                  return _buildError('${snapshot.error}', context);
+                }
 
-              return _buildLoad(context);
-            },
+                return _buildLoad(context);
+              },
+            ),
           ),
         ),
       ),
