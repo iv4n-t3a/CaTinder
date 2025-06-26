@@ -1,40 +1,31 @@
-# Catinder - тиндер для котов
+# Catinder - tinder for cats
 
-![Иконка](assets/icon.png)
+![icon](assets/icon.png)
 
-## Описание
+## Download APK
 
-Тиндер для котиков. Можно смотреть карточки с котиками и свайпать их, как в тиндере
-(ставить лайк на свайп вправо)
+[Download APK](https://disk.yandex.ru/d/N7Gy4uzc-85b0w)
 
-## Скачать
+## Demo
 
-[Скачать apk](https://disk.yandex.ru/d/N7Gy4uzc-85b0w)
+![Main screen](assets/demo-main-screen.jpg)
 
-## Демо
+![Detailed cat info](assets/demo-details-info.jpg)
 
-![Главный экран](assets/demo-main-screen.jpg)
+![History](assets/demo-history.jpg)
 
-![Подробное описание](assets/demo-details-info.jpg)
+![History filter](assets/demo-filter.jpg)
 
-![История](assets/demo-history.jpg)
+![Lack of internet indicator](assets/demo-no-internet.jpg)
 
-![Фильтер истории](assets/demo-filter.jpg)
+## Features
 
-![Пропал интернет](assets/demo-no-internet.jpg)
-
-## Фичи
-
-- Получение карточек с [thecatsapi](thecatapi.com)
-- Свайп как в тиндере с анимациями
-- Подробная информация о породе при тапе на карточку
-- Иконка приложения
-- Удобная навигация
-- Экран с историей всех лайков
-- Возможность удалять лайки
-- Возможность фильтровать лайкнутых котиков по породе
-- История лайков сохраняется на устройстве локально
-- Картинки понравившихся котиков кэшируются
-- В случае потери интернета показывается не блокирующее интерфейс сообщение
-- Удаление лайков из истории свайпом
-- История открывается по клику на количество лайков
+- Cards from [The Cat API](thecatapi.com)
+- Animated Tinder-like swipe
+- Detailed cat info (by tapping on the image)
+- Likes history screen
+- Remove likes by swiping them out on the history screen
+- Filter cats by breed on the history screen
+- Local history saving
+- Image caching
+- "No Internet" bar at the bottom of the screen
