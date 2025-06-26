@@ -47,15 +47,17 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       return ListView(children: likes);
                     }
                   }),
-              if (_filterShown) Filter()
+              if (_filterShown) Filter(close: _switchFilterView)
             ],
           );
         },
       ),
-      floatingActionButton: Button(
-        onPressed: _switchFilterView,
-        icon: _filterShown ? Icons.arrow_back : Icons.menu,
-      ),
+      floatingActionButton: !_filterShown
+          ? Button(
+              onPressed: _switchFilterView,
+              icon: Icons.menu,
+            )
+          : null,
     );
   }
 }
