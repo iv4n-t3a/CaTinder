@@ -1,9 +1,0 @@
-{
-  "elements": {},
-  "imports": [
-    "package:app/core.dart",
-    "package:app/presentation/swiper/screen.dart",
-    "package:app/screen.dart",
-    "package:flutter/material.dart"
-  ]
-}

@@ -1,6 +1,0 @@
-{
-  "elements": {},
-  "imports": [
-    "package:app/domain/entities/cat.dart"
-  ]
-}

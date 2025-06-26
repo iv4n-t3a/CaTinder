@@ -1,1 +1,0 @@
-{"valid_import":true,"imports":[{"uri":"package:app/data/database/database.dart","transitive":false},{"uri":"package:app/domain/entities/cat.dart","transitive":false},{"uri":"package:app/domain/repositories/history.dart","transitive":false},{"uri":"package:drift/drift.dart","transitive":false}],"elements":[]}

@@ -1,7 +1,0 @@
-{
-  "elements": {},
-  "imports": [
-    "package:flutter/material.dart",
-    "package:cached_network_image/cached_network_image.dart"
-  ]
-}

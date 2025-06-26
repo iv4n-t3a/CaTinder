@@ -1,8 +1,0 @@
-{
-  "elements": {},
-  "imports": [
-    "package:http/http.dart",
-    "package:app/domain/entities/cat.dart",
-    "package:app/data/cats/model.dart"
-  ]
-}

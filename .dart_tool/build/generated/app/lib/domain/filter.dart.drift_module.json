@@ -1,9 +1,0 @@
-{
-  "elements": {},
-  "imports": [
-    "package:app/domain/entities/cat.dart",
-    "package:app/domain/repositories/history.dart",
-    "package:flutter_bloc/flutter_bloc.dart",
-    "package:get_it/get_it.dart"
-  ]
-}
