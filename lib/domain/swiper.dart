@@ -15,9 +15,13 @@ class SwiperCubit extends Cubit<SwiperState> {
   SwiperCubit() : super(_nextState());
 
   void like() async {
-    Cat cat = await state.catFuture;
-    GetIt.I.get<HistoryRepository>().addLike(cat);
-    emit(_nextState());
+    try {
+      Cat cat = await state.catFuture;
+      GetIt.I.get<HistoryRepository>().addLike(cat);
+      emit(_nextState());
+    } catch (e) {
+      emit(_nextState()); // just going to next card
+    }
   }
 
   void dislike() {
