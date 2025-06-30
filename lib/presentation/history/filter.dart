@@ -17,6 +17,26 @@ class Filter extends StatefulWidget {
 }
 
 class _FilterState extends State<Filter> {
+  Widget _getListOfBreeds(BuildContext context) {
+    if (context.read<FilterCubit>().filterMap.isEmpty) {
+      return TextBox(text: "Looks like there is nothing to filter :(");
+    }
+    return ListView(
+      shrinkWrap: true,
+      children: List.from(
+        context.read<FilterCubit>().filterMap.entries.map(
+              (entry) => CheckboxListTile(
+                value: entry.value,
+                onChanged: (bool? value) {
+                  context.read<FilterCubit>().setBreed(entry.key, value!);
+                },
+                title: TextBox(text: entry.key),
+              ),
+            ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,22 +48,7 @@ class _FilterState extends State<Filter> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Flexible(
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: List.from(
-                      ctx.read<FilterCubit>().filterMap.entries.map(
-                            (entry) => CheckboxListTile(
-                              value: entry.value,
-                              onChanged: (bool? value) {
-                                ctx
-                                    .read<FilterCubit>()
-                                    .setBreed(entry.key, value!);
-                              },
-                              title: TextBox(text: entry.key),
-                            ),
-                          ),
-                    ),
-                  ),
+                  child: _getListOfBreeds(ctx),
                 ),
                 CaTinderTextButton(
                   text: 'OK',
