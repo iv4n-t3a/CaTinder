@@ -39,20 +39,9 @@ jobs:
     - name: Build APK
       run: flutter build apk --release --dart-define=THE_CAT_API_KEY=${{ secrets.THE_CAT_API_KEY }}
 
-    - name: Create GitHub Release
-      id: create_release
-      uses: softprops/action-gh-release@v2
-      with:
-        tag_name: "build-${{ github.sha }}"
-        name: "Build ${{ github.sha }}"
-        body: "Automated release for commit ${{ github.sha }}"
-        draft: false
-        prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
     - name: Upload APK to Release
       uses: softprops/action-gh-release@v2
+      if: github.ref_type == 'tag'
       with:
         files: build/app/outputs/flutter-apk/app-release.apk
       env:
