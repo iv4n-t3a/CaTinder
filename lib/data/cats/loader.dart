@@ -19,10 +19,10 @@ class CatLoaderImpl implements CatLoader {
       'limit': '1'
     };
 
+    const String theCatApiKey = String.fromEnvironment('THE_CAT_API_KEY');
     const headers = {
       "Content-Type": "application/json",
-      "x-api-key":
-          "live_rAxM6y87Cf77PI4SjVAePN7ZKpgg4ELhIG4xn9WizqDOvV2mLNAxjeJf9DfyRe4q"
+      "x-api-key": theCatApiKey,
     };
     final uri =
         Uri.https('api.thecatapi.com', 'v1/images/search', queryParameters);
