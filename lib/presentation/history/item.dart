@@ -56,17 +56,13 @@ class HistoryItem extends StatelessWidget {
                     FutureBuilder<DateTime>(
                       future: _fetchLikeDate(),
                       builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const CircularProgressIndicator();
-                        } else if (snapshot.hasError) {
-                          return const SizedBox.shrink();
-                        } else {
+                        if (snapshot.hasData) {
                           final likeDate = snapshot.data!;
                           return FooterTextBox(
                             text: DateFormat("hh:mm dd.MM").format(likeDate),
                           );
                         }
+                        return FooterTextBox(text: "");
                       },
                     ),
                   ],

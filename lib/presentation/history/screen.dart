@@ -38,14 +38,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       .map((cat) => HistoryItem(cat: cat))
                       .toList(),
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator();
-                    } else if (snapshot.hasError) {
-                      return const SizedBox.shrink();
-                    } else {
+                    if (snapshot.hasData) {
                       final likes = snapshot.data!;
                       return ListView(children: likes);
                     }
+                    return const SizedBox.shrink();
                   }),
               if (_filterShown) Filter(close: _switchFilterView)
             ],
