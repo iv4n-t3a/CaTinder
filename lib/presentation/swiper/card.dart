@@ -1,4 +1,5 @@
 import 'package:app/domain/entities/cat.dart';
+import 'package:app/presentation/util/network_error.dart';
 import 'package:app/presentation/util/textbox.dart';
 import 'package:app/presentation/util/netimage.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,17 @@ class CardWidget extends StatelessWidget {
   Widget _buildLoaded(Cat card, BuildContext context) {
     return Column(
       children: [
-        NetImage(url: card.imageUrl),
-        TextBox(text: card.breed),
+        Expanded(
+          child: NetImage(
+            url: card.imageUrl,
+          ),
+        ),
+        SizedBox(
+          height: 100,
+          child: Center(
+            child: TextBox(text: card.breed),
+          ),
+        ),
       ],
     );
   }
@@ -37,15 +47,11 @@ class CardWidget extends StatelessWidget {
         ),
       );
     });
-    return Center(child: Icon(Icons.error, color: Colors.red));
+    return NetworkError();
   }
 
   Widget _buildLoad(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: 500,
-      child: const CircularProgressIndicator(),
-    );
+    return Center(child: const CircularProgressIndicator());
   }
 
   @override
@@ -55,19 +61,16 @@ class CardWidget extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20.0),
         child: Card(
-          child: SingleChildScrollView(
-            child: FutureBuilder<Cat>(
-              future: card,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return _buildLoaded(snapshot.data!, context);
-                } else if (snapshot.hasError) {
-                  return _buildError('${snapshot.error}', context);
-                }
-
-                return _buildLoad(context);
-              },
-            ),
+          child: FutureBuilder<Cat>(
+            future: card,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return _buildLoaded(snapshot.data!, context);
+              } else if (snapshot.hasError) {
+                return _buildError('${snapshot.error}', context);
+              }
+              return _buildLoad(context);
+            },
           ),
         ),
       ),

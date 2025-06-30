@@ -3,19 +3,22 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 class NetImage extends StatelessWidget {
   final String url;
-  final int height = 500;
+  final double? height;
+  final double? width;
 
   const NetImage({
     super.key,
     required this.url,
+    this.height = double.infinity,
+    this.width = double.infinity,
   });
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: url,
-      height: 500,
-      width: double.infinity,
+      height: height,
+      width: width,
       fit: BoxFit.cover,
       placeholder: (context, url) =>
           const Center(child: CircularProgressIndicator()),

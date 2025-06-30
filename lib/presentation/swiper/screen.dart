@@ -26,7 +26,8 @@ class _SwiperScreenState extends State<SwiperScreen> {
   @override
   void initState() {
     super.initState();
-    netobserver = NetworkStatusObserver(onNoInternet: () => notifyNoInternet(context));
+    netobserver =
+        NetworkStatusObserver(onNoInternet: () => notifyNoInternet(context));
   }
 
   @override
@@ -40,7 +41,7 @@ class _SwiperScreenState extends State<SwiperScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           SizedBox(
-            height: 600,
+            height: MediaQuery.of(context).size.height - 200,
             child: BlocBuilder<SwiperCubit, SwiperState>(
               builder: (ctx, cat) => Swipable(
                 child: CardWidget(card: cat.catFuture),
@@ -57,45 +58,47 @@ class _SwiperScreenState extends State<SwiperScreen> {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Button(
-                onPressed: () => context.read<SwiperCubit>().dislike(),
-                icon: Icons.clear,
-              ),
-              GestureDetector(
-                child: BlocBuilder<SwiperCubit, SwiperState>(
-                  builder: (context, cat) => FutureBuilder(
-                    future: GetIt.I.get<HistoryRepository>().likesCount,
-                    builder: (BuildContext context, AsyncSnapshot snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const SizedBox.shrink();
-                      } else if (snapshot.hasError) {
-                        return const SizedBox.shrink();
-                      } else {
-                        return TextBox(text: snapshot.data!.toString());
-                      }
-                    },
-                  ),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Button(
+                  onPressed: () => context.read<SwiperCubit>().dislike(),
+                  icon: Icons.clear,
                 ),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => AppScreen(screen: HistoryScreen()),
+                GestureDetector(
+                  child: BlocBuilder<SwiperCubit, SwiperState>(
+                    builder: (context, cat) => FutureBuilder(
+                      future: GetIt.I.get<HistoryRepository>().likesCount,
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const SizedBox.shrink();
+                        } else if (snapshot.hasError) {
+                          return const SizedBox.shrink();
+                        } else {
+                          return TextBox(text: snapshot.data!.toString());
+                        }
+                      },
                     ),
-                  );
-                },
-              ),
-              Button(
-                onPressed: () => context.read<SwiperCubit>().like(),
-                icon: Icons.favorite,
-              ),
-            ],
-          ),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => AppScreen(screen: HistoryScreen()),
+                      ),
+                    );
+                  },
+                ),
+                Button(
+                  onPressed: () => context.read<SwiperCubit>().like(),
+                  icon: Icons.favorite,
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
   }
 }
-

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:app/domain/entities/cat.dart';
 import 'package:app/domain/filter.dart';
 import 'package:app/domain/repositories/history.dart';
@@ -27,6 +29,13 @@ class HistoryItem extends StatelessWidget {
     return GetIt.I.get<HistoryRepository>().removeLike(cat);
   }
 
+  double _calcImageSize(context) {
+    return min(
+      MediaQuery.of(context).size.width * 1.3,
+      MediaQuery.of(context).size.height - 300,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FilterCubit, FilterState>(
@@ -39,7 +48,10 @@ class HistoryItem extends StatelessWidget {
               child: Card(
                 child: Column(
                   children: [
-                    NetImage(url: cat.imageUrl),
+                    NetImage(
+                      url: cat.imageUrl,
+                      height: _calcImageSize(context),
+                    ),
                     TextBox(text: cat.breed),
                     FutureBuilder<DateTime>(
                       future: _fetchLikeDate(),

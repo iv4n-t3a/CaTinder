@@ -1,5 +1,6 @@
 import 'package:app/domain/entities/cat.dart';
 import 'package:app/presentation/util/netimage.dart';
+import 'package:app/presentation/util/network_error.dart';
 import 'package:app/presentation/util/textbox.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,7 @@ class DetailsScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              NetImage(url: card.imageUrl),
+              NetImage(url: card.imageUrl, height: null),
               TextBox(text: card.description),
             ],
           ),
@@ -37,7 +38,7 @@ class DetailsScreen extends StatelessWidget {
         title: TextBox(text: "Network error:("),
         centerTitle: true,
       ),
-      body: TextBox(text: error),
+      body: NetworkError(),
     );
   }
 
@@ -49,7 +50,6 @@ class DetailsScreen extends StatelessWidget {
       ),
       body: Container(
         alignment: Alignment.center,
-        height: 500,
         child: const CircularProgressIndicator(),
       ),
     );

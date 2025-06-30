@@ -29,3 +29,4 @@
 - Local history saving
 - Image caching
 - "No Internet" bar at the bottom of the screen
+- Rubber layout

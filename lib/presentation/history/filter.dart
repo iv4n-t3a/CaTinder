@@ -29,6 +29,7 @@ class _FilterState extends State<Filter> {
               children: [
                 Flexible(
                   child: ListView(
+                    shrinkWrap: true,
                     children: List.from(
                       ctx.read<FilterCubit>().filterMap.entries.map(
                             (entry) => CheckboxListTile(
