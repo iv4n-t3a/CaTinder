@@ -1,4 +1,4 @@
-name: Release APK on master commit
+name: Test and release APK
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  build-and-release:
+  test-and-release:
     runs-on: ubuntu-latest
 
     steps:
