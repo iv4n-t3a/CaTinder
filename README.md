@@ -30,3 +30,20 @@
 - Image caching
 - "No Internet" bar at the bottom of the screen
 - Rubber layout
+
+## Build guide
+
+Get dependencies
+
+    flutter pub get
+
+Obtain api key from [The Cat API](thecatapi.com)
+
+Build apk with your api key
+
+    flutter build apk --release --dart-define=THE_CAT_API_KEY=your-api-key
+
+Or run
+
+    flutter run --dart-define=THE_CAT_API_KEY=your-api-key
+    
