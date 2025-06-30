@@ -4,7 +4,7 @@
 
 ## Download APK
 
-[Download APK](https://disk.yandex.ru/d/N7Gy4uzc-85b0w)
+[Download APK](https://github.com/iv4n-t3a/CaTinder/releases)
 
 ## Demo
 
