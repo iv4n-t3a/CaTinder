@@ -67,19 +67,24 @@ class _SwiperScreenState extends State<SwiperScreen> {
                   icon: Icons.clear,
                 ),
                 GestureDetector(
-                  child: BlocBuilder<SwiperCubit, SwiperState>(
-                    builder: (context, cat) => FutureBuilder(
-                      future: GetIt.I.get<HistoryRepository>().likesCount,
-                      builder: (BuildContext context, AsyncSnapshot snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const SizedBox.shrink();
-                        } else if (snapshot.hasError) {
-                          return const SizedBox.shrink();
-                        } else {
-                          return TextBox(text: snapshot.data!.toString());
-                        }
-                      },
+                  child: SizedBox(
+                    height: 80,
+                    width: 100,
+                    child: BlocBuilder<SwiperCubit, SwiperState>(
+                      builder: (context, cat) => FutureBuilder(
+                        future: GetIt.I.get<HistoryRepository>().likesCount,
+                        builder:
+                            (BuildContext context, AsyncSnapshot snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const SizedBox.shrink();
+                          } else if (snapshot.hasError) {
+                            return const SizedBox.shrink();
+                          } else {
+                            return TextBox(text: snapshot.data!.toString());
+                          }
+                        },
+                      ),
                     ),
                   ),
                   onTap: () {
