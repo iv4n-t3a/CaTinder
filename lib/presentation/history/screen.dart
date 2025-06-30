@@ -15,18 +15,6 @@ class HistoryScreen extends StatefulWidget {
 
 class _HistoryScreenState extends State<HistoryScreen> {
   bool _filterShown = false;
-  late Future<List<HistoryItem>> _filteredItemsFuture;
-
-  @override
-  void initState() {
-    super.initState();
-    _filteredItemsFuture = _fetchFilteredItems();
-  }
-
-  Future<List<HistoryItem>> _fetchFilteredItems() async {
-    final categories = context.read<FilterCubit>().filteredItems;
-    return categories.map((cat) => HistoryItem(cat: cat)).toList();
-  }
 
   void _switchFilterView() {
     setState(() => _filterShown = !_filterShown);
@@ -39,23 +27,30 @@ class _HistoryScreenState extends State<HistoryScreen> {
         title: TextBox(text: "History"),
         centerTitle: true,
       ),
-      body: Stack(
-        children: [
-          FutureBuilder<List<HistoryItem>>(
-            future: _filteredItemsFuture,
-            builder: (BuildContext context, AsyncSnapshot snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CircularProgressIndicator();
-              } else if (snapshot.hasError) {
-                return const SizedBox.shrink();
-              } else {
-                final likes = snapshot.data!;
-                return ListView(children: likes);
-              }
-            },
-          ),
-          if (_filterShown) Filter(close: _switchFilterView),
-        ],
+      body: BlocBuilder<FilterCubit, FilterState>(
+        builder: (ctx, state) {
+          return Stack(
+            children: [
+              FutureBuilder<List<HistoryItem>>(
+                  future: ctx
+                      .read<FilterCubit>()
+                      .filteredItems
+                      .map((cat) => HistoryItem(cat: cat))
+                      .toList(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const CircularProgressIndicator();
+                    } else if (snapshot.hasError) {
+                      return const SizedBox.shrink();
+                    } else {
+                      final likes = snapshot.data!;
+                      return ListView(children: likes);
+                    }
+                  }),
+              if (_filterShown) Filter(close: _switchFilterView)
+            ],
+          );
+        },
       ),
       floatingActionButton: !_filterShown
           ? Button(
