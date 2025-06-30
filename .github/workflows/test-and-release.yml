@@ -38,14 +38,14 @@ jobs:
 
     - name: Decode keystore
       run: |
-        echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/my-release-key.jks
+        echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/release-key.jks
 
     - name: Create key.properties
       run: |
         echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" > android/key.properties
         echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
         echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
-        echo "storeFile=app/my-release-key.jks" >> android/key.properties
+        echo "storeFile=app/release-key.jks" >> android/key.properties
 
     - name: Build APK
       run: flutter build apk --release --dart-define=THE_CAT_API_KEY=${{ secrets.THE_CAT_API_KEY }}
